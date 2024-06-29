@@ -20,7 +20,7 @@ const Home: React.FC = () => {
           Examine the
         </h1>
         <h1 className="text-center font-bold !leading-0 text-[90px]">
-          Potential of EBP's{" "}
+          Potential of EBP&apos;s{" "}
         </h1>
         <h1 className="text-center font-bold !leading-0 text-[90px] text-salmon-pink">
           AI Chatting
@@ -51,9 +51,9 @@ const Home: React.FC = () => {
         </div>
       </div>
       <p className="p2 text-center max-w-[70%] mx-auto">
-        Discover the future of communication with EBP's AI Chatting. Explore how
-        AI is revolutionizing interactions, enhancing customer service, and
-        unlocking new possibilities in digital conversations.
+        Discover the future of communication with EBP&apos;s AI Chatting.
+        Explore how AI is revolutionizing interactions, enhancing customer
+        service, and unlocking new possibilities in digital conversations.
       </p>
       <div className="flex justify-center items-center space-x-5 py-8">
         <Button
