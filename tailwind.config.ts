@@ -98,6 +98,29 @@ const config: Config = {
           "radial-gradient(circle, rgba(232,121,249,1) 0%, rgba(9,9,11,1) 99%)",
       },
     },
+    screens: {
+      "2xl": { min: "1536px" },
+      // => @media (max-width: 1535px) { ... }
+      xl: { min: "1280px" },
+      // => @media (max-width: 1279px) { ... }
+      lg: { min: "1024px" },
+      // => @media (max-width: 1023px) { ... }
+      md: { min: "768px" },
+      // => @media (max-width: 767px) { ... }
+      sm: { min: "600px" },
+      // => @media (max-width: 639px) { ... }
+      xsm: { min: "480px" },
+      xlmx: { max: "1280px" },
+      // => @media (max-width: 1279px) { ... }
+      lgmx: { max: "1024px" },
+      mx910: { max: "910px" },
+      // => @media (max-width: 1023px) { ... }
+      mdmx: { max: "768px" },
+      // => @media (max-width: 767px) { ... }
+      smmx: { max: "600px" },
+      // => @media (max-width: 639px) { ... }
+      xsmmx: { max: "480px" },
+    },
   },
   plugins: [],
 };

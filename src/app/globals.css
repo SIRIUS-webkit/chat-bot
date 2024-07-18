@@ -18,14 +18,14 @@
 
 @layer base {
   h1 {
-    @apply text-4xl text-white;
+    @apply text-4xl text-white mdmx:text-3xl;
   }
   h2 {
     @apply text-4xl text-white;
   }
 
   h3 {
-    @apply text-3xl text-white;
+    @apply text-3xl text-white mdmx:text-2xl;
   }
   h4 {
     @apply text-2xl text-white;

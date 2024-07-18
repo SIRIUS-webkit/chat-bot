@@ -1,19 +1,15 @@
 "use client";
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import useChat from "@/hooks/use-chat";
 import { ChatMessage } from "./ChatMessage";
-import Button from "./common/Button";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ChatBot() {
   // The content of the box where the user is typing
   const [message, setMessage] = useState<string>("");
   const { currentChat, chatHistory, sendMessage, cancel, state, clear } =
     useChat();
-  console.log(state);
-  const currentMessage = useMemo(() => {
-    return { content: currentChat ?? "", role: "assistant" } as const;
-  }, [currentChat]);
-
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -33,24 +29,47 @@ export default function ChatBot() {
     focusInput();
   }, [state]);
 
+  const isDisable = () => {
+    if (state !== "idle" || !message) {
+      return true;
+    }
+    return false;
+  };
+
   return (
-    <main className="bg-[#15161a] md:shadow-md p-24 w-full h-screen flex flex-col">
+    <main className="bg-[#15161a] md:shadow-md p-24 lgmx:p-5 w-full h-screen flex flex-col">
       <section className="overflow-y-auto custom-scrollbar flex-grow mb-4 pb-8">
-        <div className="flex flex-col space-y-4">
+        <div className="flex flex-col space-y-4 px-8">
           {chatHistory.length === 0 ? (
             <div className="bg-[#1d2027]  rounded-lg px-8 py-5 mr-20 w-full">
-              <h3 className="font-bold mb-2">🤖 Hello, I am EBP Bot</h3>
+              <h3 className="font-bold mb-2">
+                🤖 Hello, I am{" "}
+                <Link href="/" target="_blank" className="text-salmon-pink">
+                  EBP
+                </Link>{" "}
+                Bot
+              </h3>
               <p className="text-white p2">
                 You can use me to create your own chat bot app. In this demo I
-                am an expert in movie reviews, so feel free to ask me about
-                movies! Then, create your own bot in under five minutes.
+                am an expert in labour laws, so feel free to ask me about laws!
+                Then, create your own bot in under five minutes.
               </p>
             </div>
           ) : (
-            chatHistory.map((chat, i) => <ChatMessage key={i} message={chat} />)
+            <div>
+              {chatHistory.map((chat, i) => (
+                <ChatMessage key={i} message={chat} />
+              ))}
+              {state === "waiting" && (
+                <div className="flex items-center space-x-2 justify-start">
+                  <Image src="/bot.png" alt="chat bot" width={32} height={32} />
+                  <div className="bg-[#ad6ab8] rounded-tl-[20px] rounded-bl-none rounded-tr-[20px] rounded-br-[20px] text-white p-2 max-w-lg">
+                    <p className="p3">Loading</p>
+                  </div>
+                </div>
+              )}
+            </div>
           )}
-
-          {/* {currentChat ? <ChatMessage message={currentMessage} /> : null} */}
         </div>
 
         <div ref={bottomRef} />
@@ -92,28 +111,29 @@ export default function ChatBot() {
             onChange={(e) => setMessage(e.target.value)}
             disabled={state !== "idle"}
           />
-          {state === "idle" ? (
-            <button
-              className="bg-salmon-pink font-bold p-3 rounded-md flex justify-center items-center"
-              type="submit"
+          <button
+            className={`bg-salmon-pink font-bold p-3 rounded-md flex justify-center items-center
+              ${isDisable() ? "opacity-[0.6]" : "opacity-[1]"}
+              `}
+            disabled={isDisable()}
+            type="submit"
+          >
+            <svg
+              className="w-6 h-6 text-gray-800 dark:text-white rotate-45"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="#ffffff"
+              viewBox="0 0 24 24"
             >
-              <svg
-                className="w-6 h-6 text-gray-800 dark:text-white rotate-45"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="#ffffff"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M12 2a1 1 0 0 1 .932.638l7 18a1 1 0 0 1-1.326 1.281L13 19.517V13a1 1 0 1 0-2 0v6.517l-5.606 2.402a1 1 0 0 1-1.326-1.281l7-18A1 1 0 0 1 12 2Z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </button>
-          ) : null}
+              <path
+                fillRule="evenodd"
+                d="M12 2a1 1 0 0 1 .932.638l7 18a1 1 0 0 1-1.326 1.281L13 19.517V13a1 1 0 1 0-2 0v6.517l-5.606 2.402a1 1 0 0 1-1.326-1.281l7-18A1 1 0 0 1 12 2Z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
         </form>
       </section>
     </main>

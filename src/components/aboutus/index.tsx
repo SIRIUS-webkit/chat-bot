@@ -4,8 +4,8 @@ import Button from "../common/Button";
 
 const AboutUs: React.FC = () => {
   return (
-    <div className="py-20 grid grid-cols-12 gap-8">
-      <div className="col-span-6">
+    <div className="py-20 mx910:py-10 grid grid-cols-12 gap-8 mx910:gap-5">
+      <div className="col-span-6 mx910:col-span-12">
         <p className="p2 font-bold text-salmon-pink">About Us</p>
         <h3 className="font-bold">
           Innovating the Future <br /> with AI
@@ -16,9 +16,9 @@ const AboutUs: React.FC = () => {
           odio harum. Numquam quaerat non consequuntur necessitatibus, eum ab
           molestias iure ullam beatae qui. Est!
         </p>
-        <div className="flex space-x-3 mt-8">
+        <div className="flex smmx:flex-col smmx:space-x-0 smmx:gap-3 space-x-3 mt-8">
           <div className="border border-[#383440] rounded-md p-3 grid grid-cols-12  bg-[#18181b]">
-            <div className="col-span-3 w-10 h-10 rounded-full bg-[#27272a] flex justify-center items-center">
+            <div className="col-span-3 smmx:col-span-2 w-10 h-10 rounded-full bg-[#27272a] flex justify-center items-center">
               <svg
                 className="w-6 h-6 text-gray-800 dark:text-white"
                 aria-hidden="true"
@@ -40,7 +40,7 @@ const AboutUs: React.FC = () => {
                 />
               </svg>
             </div>
-            <div className="col-span-9">
+            <div className="col-span-9 smmx:col-span-10">
               <p className="p2 font-bold">Our Mission</p>
               <p className="p3">
                 We aim to make advanced chatbot AI technology .
@@ -48,7 +48,7 @@ const AboutUs: React.FC = () => {
             </div>
           </div>
           <div className="border border-[#383440] rounded-md p-3 grid grid-cols-12  bg-[#18181b]">
-            <div className="col-span-3 w-10 h-10 rounded-full bg-[#27272a] flex justify-center items-center">
+            <div className="col-span-3 smmx:col-span-2 w-10 h-10 rounded-full bg-[#27272a] flex justify-center items-center">
               <svg
                 className="w-6 h-6 text-gray-800"
                 aria-hidden="true"
@@ -67,7 +67,7 @@ const AboutUs: React.FC = () => {
                 />
               </svg>
             </div>
-            <div className="col-span-9">
+            <div className="col-span-9 smmx:col-span-10">
               <p className="p2 font-bold">Our Vision</p>
               <p className="p3">
                 We aim to make advanced chatbot AI technology .
@@ -81,7 +81,7 @@ const AboutUs: React.FC = () => {
           type="button"
         />
       </div>
-      <div className="col-span-6 relative">
+      <div className="col-span-6 mx910:col-span-12 relative">
         <Image
           src="/aboutus.png"
           alt="about us ebp"

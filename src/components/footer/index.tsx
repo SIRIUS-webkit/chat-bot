@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -17,12 +18,12 @@ const Footer = () => {
     {
       id: 1,
       name: "About Us",
-      link: "/about-us",
+      link: "/",
     },
     {
       id: 2,
       name: "Features",
-      link: "/feature",
+      link: "/",
     },
     {
       id: 3,
@@ -32,26 +33,28 @@ const Footer = () => {
   ];
 
   return (
-    <div className="max-w-[1200px] mx-auto pb-20">
-      <div className="grid grid-cols-12 items-end">
-        <div className="col-span-6">
-          <h4>Logo</h4>
-          <p className="p2">
+    <div className="max-w-[1200px] mx-auto lgmx:mx-5 pb-20 smmx:pb-10">
+      <div className="grid grid-cols-12 items-end mx910:items-start">
+        <div className="col-span-6 mx910:col-span-12">
+          <Link href="#">
+            <Image src="/bot.png" alt="chat bot" width={28} height={28} />
+          </Link>
+          <p className="p2 mt-4">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus,
             libero dolor. Accusantium ea voluptatum dolorum, soluta voluptatem,
             enim iusto.
           </p>
         </div>
-        <div className="col-span-6 flex space-x-10 items-end justify-end">
+        <div className="col-span-6 mx910:col-span-12 flex xsmmx:flex-col space-x-10 xsmmx:space-x-0 items-end xsmmx:items-start justify-end mx910:justify-start mt-0 mx910:mt-10">
           {navLinks.map((item) => (
-            <Link href={item.link} key={item.id}>
+            <Link href={item.link} key={item.id} target="_blank">
               <p className="p2">{item.name}</p>
             </Link>
           ))}
         </div>
       </div>
       <div className="w-full h-[1px] bg-[#383440] my-4" />
-      <div className="flex justify-between items-center">
+      <div className="flex xsmmx:flex-col xsmmx:gap-4 justify-between items-center">
         <p className="p3">Copyright @ 2024 EBP, All rights reserved</p>
         <div className="flex space-x-3 items-center">
           <svg

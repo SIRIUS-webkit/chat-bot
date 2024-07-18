@@ -16,7 +16,7 @@ export const ChatMessage: FunctionComponent<Props> = ({ message }) => {
 
   return (
     <div
-      className={`flex items-center space-x-2 ${
+      className={`flex items-start space-x-2 ${
         isUser ? "justify-end" : "justify-start"
       }`}
     >
@@ -30,7 +30,7 @@ export const ChatMessage: FunctionComponent<Props> = ({ message }) => {
             : "bg-[#ad6ab8] rounded-tl-[20px] rounded-bl-none rounded-tr-[20px] rounded-br-[20px] text-white"
         } p-2 max-w-lg`}
       >
-        <p className="p3">{message.text}</p>
+        <p className="p3" dangerouslySetInnerHTML={{ __html: message.text }} />
       </div>
       {isUser && (
         <Image src="/human.png" alt="chat human" width={32} height={32} />
