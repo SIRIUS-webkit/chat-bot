@@ -23,9 +23,10 @@ The EBP-bot Chat Interface is built using Next.js, providing a seamless and resp
 ### Installation
 
 1. Clone the repository:
-   
+   ```
    git clone https://github.com/SIRIUS-webkit/chat-bot.git
    cd chat-bot
+   ```
    
 
 2. Install dependencies:
