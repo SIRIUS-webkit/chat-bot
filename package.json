@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@huggingface/inference": "^2.7.0",
+    "@vercel/speed-insights": "^1.0.12",
     "ai": "^3.2.15",
     "next": "14.2.4",
     "react": "^18",

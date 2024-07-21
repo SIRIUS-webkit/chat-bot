@@ -1,6 +1,7 @@
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const space_gro = Space_Grotesk({
   subsets: ["latin"],
@@ -55,7 +56,10 @@ export default function RootLayout({
           content="https://github.com/SIRIUS-webkit/chat-bot/blob/master/public/meta_bg.png"
         />
       </head>
-      <body className={space_gro.className}>{children}</body>
+      <body className={space_gro.className}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
