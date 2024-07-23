@@ -35,7 +35,7 @@ const useChat = (): UseChatReturn => {
     try {
       const payload = { role: "user", Question: message };
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/chat/`,
+        `${process.env.NEXT_PUBLIC_API_ENDPOINT}/chat`,
         {
           method: "POST",
           mode: "cors",
