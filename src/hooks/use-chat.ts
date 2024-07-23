@@ -38,6 +38,7 @@ const useChat = (): UseChatReturn => {
         `${process.env.NEXT_PUBLIC_API_ENDPOINT}/chat/`,
         {
           method: "POST",
+          mode: "cors",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
