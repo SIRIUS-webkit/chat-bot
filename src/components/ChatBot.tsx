@@ -39,7 +39,7 @@ export default function ChatBot() {
   return (
     <main className="bg-[#15161a] md:shadow-md p-24 lgmx:p-5 w-full h-screen flex flex-col">
       <section className="overflow-y-auto custom-scrollbar flex-grow mb-4 pb-8">
-        <div className="flex flex-col space-y-4 px-8">
+        <div className="flex flex-col space-y-4 px-8 smmx:px-0">
           {chatHistory.length === 0 ? (
             <div className="bg-[#1d2027]  rounded-lg px-8 py-5 mr-20 w-full">
               <h3 className="font-bold mb-2">

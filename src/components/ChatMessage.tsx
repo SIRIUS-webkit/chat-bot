@@ -16,7 +16,7 @@ export const ChatMessage: FunctionComponent<Props> = ({ message }) => {
 
   return (
     <div
-      className={`flex items-start space-x-2 ${
+      className={`flex items-start space-x-2 mt-4 ${
         isUser ? "justify-end" : "justify-start"
       }`}
     >
