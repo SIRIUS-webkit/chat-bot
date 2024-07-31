@@ -37,7 +37,7 @@ const Footer = () => {
       <div className="grid grid-cols-12 items-end mx910:items-start">
         <div className="col-span-6 mx910:col-span-12">
           <Link href="#">
-            <Image src="/bot.png" alt="chat bot" width={28} height={28} />
+            <Image src="/logo.png" alt="chat bot" width={28} height={28} />
           </Link>
           <p className="p2 mt-4">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus,

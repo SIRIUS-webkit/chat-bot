@@ -4,6 +4,7 @@ import useChat from "@/hooks/use-chat";
 import { ChatMessage } from "./ChatMessage";
 import Image from "next/image";
 import Link from "next/link";
+import useWindowSize from "@/hooks/useWindowSize";
 
 export default function ChatBot() {
   // The content of the box where the user is typing
@@ -11,6 +12,7 @@ export default function ChatBot() {
   const { currentChat, chatHistory, sendMessage, cancel, state, clear } =
     useChat();
   const bottomRef = useRef<HTMLDivElement>(null);
+  const { width }: any = useWindowSize();
 
   useEffect(() => {
     scrollToBottom();
@@ -62,7 +64,12 @@ export default function ChatBot() {
               ))}
               {state === "waiting" && (
                 <div className="flex items-center space-x-2 justify-start">
-                  <Image src="/bot.png" alt="chat bot" width={32} height={32} />
+                  <Image
+                    src="/bot.png"
+                    alt="chat bot"
+                    width={width < 768 ? 32 : 44}
+                    height={width < 768 ? 32 : 44}
+                  />
                   <div className="bg-[#ad6ab8] rounded-tl-[20px] rounded-bl-none rounded-tr-[20px] rounded-br-[20px] text-white p-2 max-w-lg">
                     <p className="p3">Loading</p>
                   </div>

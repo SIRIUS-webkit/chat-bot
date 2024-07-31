@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="max-w-[1200px] mx-auto lgmx:mx-5 flex justify-between items-center py-8">
       <Link href="#">
-        <Image src="/bot.png" alt="chat bot" width={48} height={48} />
+        <Image src="/logo.png" alt="chat bot" width={48} height={48} />
       </Link>
       <div className="flex space-x-10 items-center">
         {navLinks.map((item) => (

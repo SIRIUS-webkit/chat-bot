@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { FunctionComponent } from "react";
 import ReactMarkdown from "react-markdown";
+import useWindowSize from "@/hooks/useWindowSize";
 
 interface ChatMessage {
   type: "user" | "bot";
@@ -14,6 +15,7 @@ interface Props {
 
 export const ChatMessage: FunctionComponent<Props> = ({ message }) => {
   const isUser = message.type === "user";
+  const { width }: any = useWindowSize();
 
   return (
     <div
@@ -22,7 +24,12 @@ export const ChatMessage: FunctionComponent<Props> = ({ message }) => {
       }`}
     >
       {!isUser && (
-        <Image src="/bot.png" alt="chat bot" width={32} height={32} />
+        <Image
+          src="/bot.png"
+          alt="chat bot"
+          width={width < 768 ? 32 : 44}
+          height={width < 768 ? 32 : 44}
+        />
       )}
       <div
         className={`${
@@ -34,7 +41,12 @@ export const ChatMessage: FunctionComponent<Props> = ({ message }) => {
         <ReactMarkdown>{message.text}</ReactMarkdown>
       </div>
       {isUser && (
-        <Image src="/human.png" alt="chat human" width={32} height={32} />
+        <Image
+          src="/human.png"
+          alt="chat human"
+          width={width < 768 ? 32 : 44}
+          height={width < 768 ? 32 : 44}
+        />
       )}
     </div>
   );
