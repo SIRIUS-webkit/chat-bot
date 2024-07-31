@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { FunctionComponent } from "react";
+import ReactMarkdown from "react-markdown";
 
 interface ChatMessage {
   type: "user" | "bot";
@@ -28,9 +29,9 @@ export const ChatMessage: FunctionComponent<Props> = ({ message }) => {
           isUser
             ? "bg-[#a45c65] rounded-tl-[20px] rounded-bl-[20px] rounded-tr-[20px] rounded-br-none text-white"
             : "bg-[#ad6ab8] rounded-tl-[20px] rounded-bl-none rounded-tr-[20px] rounded-br-[20px] text-white"
-        } p-2 max-w-lg`}
+        } p-2 max-w-lg markdown-text`}
       >
-        <p className="p3" dangerouslySetInnerHTML={{ __html: message.text }} />
+        <ReactMarkdown>{message.text}</ReactMarkdown>
       </div>
       {isUser && (
         <Image src="/human.png" alt="chat human" width={32} height={32} />

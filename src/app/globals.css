@@ -84,6 +84,18 @@
   .custom-button {
     @apply py-2.5 px-12 text-zic p2 font-bold rounded-[8px] transition-all duration-500 hover:shadow-md;
   }
+  .markdown-text {
+    @apply p3;
+  }
+
+  .markdown-text p {
+    @apply p3;
+  }
+
+  .markdown-text ol,
+  .markdown-text ul {
+    @apply ml-5 list-decimal;
+  }
 }
 
 @layer utilities {
